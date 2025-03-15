@@ -1,8 +1,11 @@
 [workspace]
 resolver = "3"
 members = ["nimbus-cli", "nimbus-rt"]
+default-members = ["nimbus-cli"]
 
 [workspace.dependencies]
+argh = { version = "0.1.13" }
 smol = { version = "2.0.2" }
+thiserror = { version = "2.0.12" }
 
 nimbus-rt = { path = "./nimbus-rt" }
