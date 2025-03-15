@@ -1,6 +1,6 @@
 [workspace]
 resolver = "3"
-members = ["nimbus-rt"]
+members = ["nimbus-cli", "nimbus-rt"]
 
 [workspace.dependencies]
 smol = { version = "2.0.2" }
