@@ -1,6 +1,7 @@
 use std::path::PathBuf;
 
 use argh::FromArgs;
+use nimbus_node::{node_start, node_stop};
 
 use crate::Result;
 
@@ -39,7 +40,7 @@ pub struct NodeStartArg {
     #[argh(option, short = 'c', description = "nimbus cluster configuration path")]
     pub config: PathBuf,
     #[argh(option, short = 'n', description = "nimbus node name")]
-    pub node: String,
+    pub node: u64,
 }
 
 #[derive(Debug, FromArgs, PartialEq, Clone)]
@@ -48,7 +49,7 @@ pub struct NodeStopArg {
     #[argh(option, short = 'c', description = "nimbus cluster configuration path")]
     pub config: PathBuf,
     #[argh(option, short = 'n', description = "nimbus node name")]
-    pub node: String,
+    pub node: u64,
 }
 
 pub trait ArgRunner {
@@ -86,12 +87,12 @@ impl ArgRunner for NodeSubCommand {
 
 impl ArgRunner for NodeStartArg {
     fn run(&self) -> Result<()> {
-        unimplemented!()
+        Ok(node_start(&self.config, self.node)?)
     }
 }
 
 impl ArgRunner for NodeStopArg {
     fn run(&self) -> Result<()> {
-        unimplemented!()
+        Ok(node_stop(&self.config, self.node)?)
     }
 }

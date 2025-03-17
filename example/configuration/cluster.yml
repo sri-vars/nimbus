@@ -1,0 +1,40 @@
+cluster:
+  cluster-name: "nimbus cluster"
+  
+nodes:
+  - id: 1
+    private-transport:
+      host: 127.0.0.1
+      port: 9000
+    public-transport:
+      host: 127.0.0.1
+      port: 9001
+    working-directory: "/tmp/nimbus/broker1"
+
+  - id: 2
+    private-transport:
+      host: 127.0.0.1
+      port: 9002
+    public-transport:
+      host: 127.0.0.1
+      port: 9003
+    working-directory: "/tmp/nimbus/broker2"
+
+  - id: 3
+    private-transport:
+      host: 127.0.0.1
+      port: 9004
+    public-transport:
+      host: 127.0.0.1
+      port: 9005
+    working-directory: "/tmp/nimbus/broker3"
+
+subjects:
+  - name: "logs"
+    partitions: 5
+    replication-factor: 1
+
+  - name: "payments"
+    partitions: 3
+    replication-factor: 3
+    

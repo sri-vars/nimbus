@@ -1,11 +1,24 @@
 [workspace]
 resolver = "3"
-members = ["nimbus-cli", "nimbus-rt"]
+members = [
+    "nimbus-cli",
+    "nimbus-rt",
+    "nimbus-common",
+    "nimbus-conf",
+    "nimbus-controlpanel",
+    "nimbus-node",
+]
 default-members = ["nimbus-cli"]
 
 [workspace.dependencies]
 argh = { version = "0.1.13" }
+serde = { version = "1.0.219" }
+serde_yml = "0.0.12"
 smol = { version = "2.0.2" }
 thiserror = { version = "2.0.12" }
 
+nimbus-common = { path = "./nimbus-common" }
+nimbus-conf = { path = "./nimbus-conf" }
+nimbus-controlpanel = { path = "./nimbus-controlpanel" }
+nimbus-node = { path = "./nimbus-node" }
 nimbus-rt = { path = "./nimbus-rt" }

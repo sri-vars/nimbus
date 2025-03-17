@@ -1,12 +1,11 @@
 [package]
-name = "nimbus-cli"
+name = "nimbus-node"
 version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-argh = { workspace = true }
 thiserror = { workspace = true }
 
+nimbus-common = { workspace = true }
 nimbus-conf = { workspace = true }
-nimbus-node = { workspace = true }
 nimbus-rt = { workspace = true }
