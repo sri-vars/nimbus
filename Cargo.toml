@@ -12,6 +12,7 @@ default-members = ["nimbus-cli"]
 
 [workspace.dependencies]
 argh = { version = "0.1.13" }
+futures = { version = "0.3.31" }
 serde = { version = "1.0.219" }
 serde_yml = "0.0.12"
 smol = { version = "2.0.2" }

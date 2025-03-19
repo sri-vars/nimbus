@@ -1,6 +1,6 @@
 use std::{
     fs,
-    net::IpAddr,
+    net::{IpAddr, SocketAddr},
     path::{Path, PathBuf},
 };
 
@@ -40,6 +40,12 @@ impl NimbusClusterConfiguration {
     pub fn new<P: AsRef<Path>>(path: P) -> Result<Self> {
         let file_content = fs::read_to_string(path)?;
         Ok(serde_yml::from_str(file_content.as_str())?)
+    }
+}
+
+impl TransportConfiguration {
+    pub fn sock_addr(&self) -> SocketAddr {
+        SocketAddr::new(self.host, self.port)
     }
 }
 
